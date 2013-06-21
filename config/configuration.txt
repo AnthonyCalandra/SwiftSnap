@@ -1,0 +1,2 @@
+savePath=C:\Users\AnthonyCalandra\Pictures
+enableAutoCropping=true
