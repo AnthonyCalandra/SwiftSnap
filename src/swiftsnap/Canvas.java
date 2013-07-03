@@ -4,6 +4,7 @@ package swiftsnap;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.Rectangle;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
@@ -89,7 +90,7 @@ public class Canvas extends JPanel implements MouseListener, MouseMotionListener
             // If the user decides to crop the image using the rectangle...
             if (doCrop == JOptionPane.YES_OPTION) {
                 // Crop and save the image.
-                Screenshot.crop(initialX, initialY, finalX, finalY);
+                Screenshot.crop(new Rectangle(initialX, initialY, finalX - initialX, finalY - initialY));
                 Screenshot.save();
                 window.destroyWindow();
             }
