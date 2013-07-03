@@ -58,13 +58,17 @@ public class Screenshot {
      * @param x2 Final point.
      * @param y2 Final point.
      */
-    public static void crop(int x, int y, int x2, int y2) {
+    public static void crop(Rectangle rect) {
         if (lastScreenshot == null)
             return;
         
         BufferedImage image = lastScreenshot.getImage();
+        int x = (int) rect.getX();
+        int y = (int) rect.getY();
+        int width = (int) rect.getWidth();
+        int height = (int) rect.getHeight();
         // Crop the image to the secified dimensions and re-create the screenshot object.
-        BufferedImage newImage = image.getSubimage(x, y, x2 - x, y2 - y);
+        BufferedImage newImage = image.getSubimage(x, y, width, height);
         lastScreenshot = new ScreenshotImage(newImage, newImage.getWidth(), newImage.getHeight());
     }
     
